@@ -1,7 +1,15 @@
 require "helper"
 
 class QueryTest < Test::Unit::TestCase
-  def test_get
-    assert_match /Olde School Barleywine/, QuickBeer::Query.beer("Olde School")
+  def setup
+    @query = QuickBeer::Query.new("Olde Sch")
+  end
+
+  def test_results
+    assert_match /Olde School Barleywine/, "#{@query.results}"
+  end
+
+  def test_unique
+    assert_match /Olde School Barleywine/, "#{@query.unique}"
   end
 end
