@@ -7,9 +7,6 @@ class QueryTest < Test::Unit::TestCase
 
   def test_results
     assert_match /Olde School Barleywine/, "#{@query.results}"
-  end
-
-  def test_unique
-    assert_match /Olde School Barleywine/, "#{@query.unique}"
+    assert_kind_of Array, @query.results
   end
 end
